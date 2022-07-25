@@ -15,7 +15,7 @@ COUNTRIES = [
     "Australia",
 ]
 FROM_DATE = "2021-01-20"
-TO_DATE = "2021-03-02"
+TO_DATE = "2021-02-03"
 
 
 def get_closest(df, col, val):
