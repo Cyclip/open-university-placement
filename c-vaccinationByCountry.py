@@ -17,14 +17,40 @@ TO_DATE = "2021-03-02"
 
 
 def to_days(date):
+    """Convert a date into an excel date (days since 1899-12-30)
+
+    Args:
+        date (DateTime): Date to convert
+
+    Returns:
+        int: Days since 1899-12-30
+    """
     return (date - dt.datetime(1899, 12, 30)).days
 
 
 def to_date(days):
+    """Convert days since 1899-12-30 to a date
+
+    Args:
+        days (int): Number of days since 1899-12-30 (excel date)
+
+    Returns:
+        DateTime: DateTime object for excel date
+    """
     return dt.datetime(1899, 12, 30) + dt.timedelta(days=days)
 
 
 def get_closest(df, col, val):
+    """Get the row in the dataframe that is closest to the value
+
+    Args:
+        df (DataFrame): DataFrame to search
+        col (string): Column to search
+        val (any): Value to search for (or closest value to)
+
+    Returns:
+        DataFrame: Row closest to the value
+    """
     index = df[col].sub(val).abs().idxmin()
     return df.loc[index]
 
@@ -48,10 +74,6 @@ def main():
         # get from and to date
         from_row = get_closest(country_df, "date", to_days(dt.datetime.strptime(FROM_DATE, "%Y-%m-%d")))
         to_row = get_closest(country_df, "date", to_days(dt.datetime.strptime(TO_DATE, "%Y-%m-%d")))
-        # print(country)
-        # print("from----\n", from_row)
-        # print("\nto----\n", to_row)
-        # print("\n\n")
 
         # get total vaccinations
         difference = int(to_row["total_vaccinations"]) - int(from_row["total_vaccinations"])
