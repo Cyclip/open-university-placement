@@ -1,3 +1,5 @@
+import datetime as dt
+
 def to_days(date):
     """Convert a date into an excel date (days since 1899-12-30)
 
