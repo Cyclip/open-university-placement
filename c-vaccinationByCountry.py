@@ -13,7 +13,20 @@ COUNTRIES = [
     "Australia",
 ]
 FROM_DATE = "2021-01-20"
-TO_DATE = "2021-02-03"
+TO_DATE = "2021-03-02"
+
+
+def to_days(date):
+    return (date - dt.datetime(1899, 12, 30)).days
+
+
+def to_date(days):
+    return dt.datetime(1899, 12, 30) + dt.timedelta(days=days)
+
+
+def get_closest(df, col, val):
+    index = df[col].sub(val).abs().idxmin()
+    return df.loc[index]
 
 
 def main():
@@ -33,12 +46,12 @@ def main():
         country_df = df[df["country"] == country]
 
         # get from and to date
-        from_row = country_df.loc[country_df["real_date"] == FROM_DATE]
-        to_row = country_df.loc[country_df["real_date"] == TO_DATE]
-        print(country)
-        print(from_row["total_vaccinations"])
-        print(to_row["total_vaccinations"])
-        print("\n\n")
+        from_row = get_closest(country_df, "date", to_days(dt.datetime.strptime(FROM_DATE, "%Y-%m-%d")))
+        to_row = get_closest(country_df, "date", to_days(dt.datetime.strptime(TO_DATE, "%Y-%m-%d")))
+        # print(country)
+        # print("from----\n", from_row)
+        # print("\nto----\n", to_row)
+        # print("\n\n")
 
         # get total vaccinations
         difference = int(to_row["total_vaccinations"]) - int(from_row["total_vaccinations"])
@@ -50,7 +63,7 @@ def main():
     total_vaccinations_df = pd.DataFrame(total_vaccinations, columns=["country", "total_vaccinations"])
     
     print(total_vaccinations_df)
-    # total_vaccinations_df.to_html("output/c-vaccinationByCountry.html")
+    total_vaccinations_df.to_html("output/c-vaccinationByCountry.html")
 
 
 if __name__ == "__main__":
