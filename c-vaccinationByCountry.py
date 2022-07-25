@@ -1,6 +1,8 @@
 import pandas as pd
 import datetime as dt
 
+from date_conversion import to_date, to_days
+
 # from 20th January 2021 to 3rd February 2021
 # 20/1/2021 to 3/2/2021
 
@@ -14,30 +16,6 @@ COUNTRIES = [
 ]
 FROM_DATE = "2021-01-20"
 TO_DATE = "2021-03-02"
-
-
-def to_days(date):
-    """Convert a date into an excel date (days since 1899-12-30)
-
-    Args:
-        date (DateTime): Date to convert
-
-    Returns:
-        int: Days since 1899-12-30
-    """
-    return (date - dt.datetime(1899, 12, 30)).days
-
-
-def to_date(days):
-    """Convert days since 1899-12-30 to a date
-
-    Args:
-        days (int): Number of days since 1899-12-30 (excel date)
-
-    Returns:
-        DateTime: DateTime object for excel date
-    """
-    return dt.datetime(1899, 12, 30) + dt.timedelta(days=days)
 
 
 def get_closest(df, col, val):
@@ -68,7 +46,7 @@ def main():
     # for each country, identify the total amount of vaccinations
     total_vaccinations = []
 
-    for i, country in enumerate(COUNTRIES):
+    for country in COUNTRIES:
         country_df = df[df["country"] == country]
 
         # get from and to date
