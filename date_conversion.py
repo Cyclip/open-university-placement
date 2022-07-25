@@ -1,5 +1,19 @@
 import datetime as dt
 
+def get_closest(df, col, val):
+    """Get the row in the dataframe that is closest to the value
+
+    Args:
+        df (DataFrame): DataFrame to search
+        col (string): Column to search
+        val (any): Value to search for (or closest value to)
+
+    Returns:
+        DataFrame: Row closest to the value
+    """
+    index = df[col].sub(val).abs().idxmin()
+    return df.loc[index]
+
 def to_days(date):
     """Convert a date into an excel date (days since 1899-12-30)
 

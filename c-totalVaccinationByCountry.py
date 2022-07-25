@@ -1,10 +1,9 @@
 import pandas as pd
 import datetime as dt
 
-from date_conversion import to_date, to_days
+from date_conversion import to_date, to_days, get_closest
 
-# from 20th January 2021 to 3rd February 2021
-# 20/1/2021 to 3/2/2021
+# Total vaccinations from 20th January 2021 to 3rd February 2021
 
 DATASET_PATH = "datasets/VaccinationByCountry.xlsx"
 COUNTRIES = [
@@ -16,21 +15,6 @@ COUNTRIES = [
 ]
 FROM_DATE = "2021-01-20"
 TO_DATE = "2021-02-03"
-
-
-def get_closest(df, col, val):
-    """Get the row in the dataframe that is closest to the value
-
-    Args:
-        df (DataFrame): DataFrame to search
-        col (string): Column to search
-        val (any): Value to search for (or closest value to)
-
-    Returns:
-        DataFrame: Row closest to the value
-    """
-    index = df[col].sub(val).abs().idxmin()
-    return df.loc[index]
 
 
 def main():
