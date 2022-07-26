@@ -11,8 +11,12 @@ def get_closest(df, col, val):
     Returns:
         DataFrame: Row closest to the value
     """
-    index = df[col].sub(val).abs().idxmin()
-    return df.loc[index]
+    return df.loc[get_closest_index(df, col, val)]
+
+
+def get_closest_index(df, col,val):
+    return df[col].sub(val).abs().idxmin()
+
 
 def to_days(date):
     """Convert a date into an excel date (days since 1899-12-30)
