@@ -18,14 +18,6 @@ COUNTRIES = [
 FROM_DATE = "2021-03-05"
 TO_DATE = "2021-03-15"
 
-# read only
-population_df = pd.read_csv(POPULATION_DATASET_PATH, skiprows=4)
-
-def date_range(start, end):
-    """Generate an iterator over the dates between start and end dates"""
-    for n in range(int(end - start).days):
-        yield start + dt.timedelta(n)
-
 
 def gen_days():
     return {
@@ -43,7 +35,6 @@ def gen_days():
     }
 
 
-
 def plot(df):
     for i, country in df.iterrows():
         plt.plot(
@@ -52,7 +43,6 @@ def plot(df):
             label=country["country"],
         )
     plt.show()
-
 
 
 def main():
