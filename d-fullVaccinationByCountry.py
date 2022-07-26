@@ -2,7 +2,7 @@ import pandas as pd
 import datetime as dt
 import matplotlib.pyplot as plt
 
-from date_conversion import to_date, to_days, get_closest_index
+from funcs import to_date, to_days, get_closest_index
 
 # Proportion of fully vaccinated from 5th to 15th March 2021
 

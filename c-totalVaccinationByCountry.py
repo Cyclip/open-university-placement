@@ -1,7 +1,7 @@
 import pandas as pd
 import datetime as dt
 
-from date_conversion import to_date, to_days, get_closest
+from funcs import to_date, to_days, get_closest
 
 # Total vaccinations from 20th January 2021 to 3rd February 2021
 
