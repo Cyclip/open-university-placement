@@ -36,12 +36,15 @@ def gen_days():
 
 
 def plot(df):
+    plt.xlabel("Time")
+    plt.ylabel("People fully vaccinated per hundred")
     for i, country in df.iterrows():
         plt.plot(
-            df.columns[2:],
-            country[2:],
+            df.columns[1:],
+            country[1:],
             label=country["country"],
         )
+    plt.legend()
     plt.show()
 
 
@@ -56,17 +59,14 @@ def main():
     df['real_date'] = pd.TimedeltaIndex(df['date'], unit='d') + dt.datetime(1899, 12, 30)
 
     # for each country, identify the total amount of vaccinations
-    # country       population      proportion
     people_fully_vaccinated = []
 
     for country in COUNTRIES:
         country_df = df.loc[df["iso_code"] == country]
-        print("\n\nCountry: " + country)
 
         # get from and to date
         from_row_index = get_closest_index(country_df, "date", to_days(dt.datetime.strptime(FROM_DATE, "%Y-%m-%d")))
         to_row_index = get_closest_index(country_df, "date", to_days(dt.datetime.strptime(TO_DATE, "%Y-%m-%d")))
-        print(from_row_index, to_row_index)
 
         # get total amount of vaccinations for each day per hundred
         days = gen_days()
@@ -109,6 +109,7 @@ def main():
     
     print(people_fully_vaccinated_df)
     people_fully_vaccinated_df.to_html("output/d-vaccinationByCountry.html")
+    people_fully_vaccinated_df.to_csv("output/d-vaccinationByCountry.csv")
 
     plot(people_fully_vaccinated_df)
 
