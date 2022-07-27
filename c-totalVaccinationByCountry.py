@@ -7,11 +7,11 @@ from funcs import to_date, to_days, get_closest
 
 DATASET_PATH = "datasets/VaccinationByCountry.xlsx"
 COUNTRIES = [
-    "United Kingdom",
-    "Norway",
-    "United States",
-    "China",
-    "Australia",
+    "GBR",
+    "NOR",
+    "USA",
+    "CHN",
+    "AUS",
 ]
 FROM_DATE = "2021-01-20"
 TO_DATE = "2021-02-03"
@@ -31,7 +31,7 @@ def main():
     total_vaccinations = []
 
     for country in COUNTRIES:
-        country_df = df[df["country"] == country]
+        country_df = df[df["iso_code"] == country]
 
         # get from and to date
         from_row = get_closest(country_df, "date", to_days(dt.datetime.strptime(FROM_DATE, "%Y-%m-%d")))
