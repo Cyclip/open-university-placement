@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 
 from funcs import get_equation
 
-DATASET_PATH    = "datasets/houseprices.xlsx"
-COL_AGE         = 'House age'
-COL_DISTANCE    = 'Distance to the nearest station'
-COL_STORES      = 'Number of nearby convenience stores'
-COL_PRICE       = 'House Price'
-VARIABLES       = ['x', 'z', 'c']
+DATASET_PATH            = "datasets/houseprices.xlsx"
+COL_AGE                 = 'House age'
+COL_DISTANCE            = 'Distance to the nearest station'
+COL_STORES              = 'Number of nearby convenience stores'
+COL_PRICE               = 'House Price'
+INDEPENDENT_VARIABLES   = ['x', 'z', 'c']
 
 
 def main():
