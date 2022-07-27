@@ -8,11 +8,6 @@ from funcs import get_dataframe
 
 DATASET_PATH = "datasets/income.xlsm"   # path to xlsm dataset
 
-
-def calculate_average(df):
-    return df['Income'].median()
-
-
 def main():
     # read from dataset
     df = get_dataframe(DATASET_PATH, "datasets/income.xlsm.pickle", sheet_name="IncomeBreakdown")
@@ -24,7 +19,8 @@ def main():
     grouped = ill_df.groupby("City")
 
     # get median income for each city
-    medians = grouped["Income"].median()
+    medians = grouped["Income"]
+    medians = medians.median()
 
     # format into dataframe
     # medians = medians.apply(lambda x: "${:,.2f}".format(x))
@@ -40,6 +36,9 @@ def main():
     
     # average income of ill people
     plt.axhline(y=ill_df["Income"].median(),linewidth=1, color='#d3d3d3AA', label="Average income of ill people")
+    plt.legend()
+    
+    plt.gcf().subplots_adjust(bottom=0.15)
 
     plt.show()
 
