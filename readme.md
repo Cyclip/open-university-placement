@@ -40,42 +40,42 @@ Code related to the Python for Data Science & Machine Learning summer placement
 ## `a-differenceBetweenAvgIncome.py`
 **Dataset**: `datasets/income.xlsm`  
 Determines the difference in average (median) income of males and females aged 35 - 45 years old (inclusive).  
-![Data visualisation](https://github.com/Cyclip/open-university-placement/main/a.png?raw=true)
+![Data visualisation](https://raw.githubusercontent.com/Cyclip/open-university-placement/main/repo/a.png?raw=true)
 ---
 
 ## `b-illAverageIncome.py`
 **Dataset**: `datasets/income.xlsm`  
 Visualises the different average income of ill people based on city.  
-![Data visualisation](https://github.com/Cyclip/open-university-placement/main/b1.png?raw=true)  
-![Data visualisation](https://github.com/Cyclip/open-university-placement/main/b2.png?raw=true)
+![Data visualisation](https://raw.githubusercontent.com/Cyclip/open-university-placement/main/repo/b1.png?raw=true)  
+![Data visualisation](https://raw.githubusercontent.com/Cyclip/open-university-placement/main/repo/b2.png?raw=true)
 
 ---
 
 ## `c-totalVaccinationByCountry.py`
 **Dataset**: `datasets/VaccinationByCountry.xlsx`  
 Visualises the total number of vaccinations given within the period of 20th January, 2021 to 3rd February, 2021 by country.  
-![Data visualisation](https://github.com/Cyclip/open-university-placement/main/c.png?raw=true)
+![Data visualisation](https://raw.githubusercontent.com/Cyclip/open-university-placement/main/repo/c.png?raw=true)
 
 ---
 
 ## `d-fullVaccinationByCountry.py`
 **Dataset**: `datasets/VaccinationByCountry.xlsx`  
 Visualises the changes in proportion of full vaccinations by country from the period 5th March, 2021 to 15th March, 2021.  
-![Data visualisation](https://github.com/Cyclip/open-university-placement/main/d.png?raw=true)
+![Data visualisation](https://raw.githubusercontent.com/Cyclip/open-university-placement/main/repo/d.png?raw=true)
 
 ---
 
 ## `e-mercedesBensAggregates.py`
 **Dataset**: `datasets/MercedesBensSales.xlsx`  
 Calculates the sum and standard deviation aggregates for the CL and SL sales (`unit.cl`, `unit.sl`).  
-![Data visualisation](https://github.com/Cyclip/open-university-placement/main/e.png?raw=true)
+![Data visualisation](https://raw.githubusercontent.com/Cyclip/open-university-placement/main/repo/e.png?raw=true)
 
 ---
 
 ## `f-linearRegression.py`
 **Dataset**: `datasets/HousePrices.xlsx`  
 Makes a univariate linear regression model to predict house prices based the distance to the nearest station, plotting the regression line ontop of a scatter graph of the dataset points.  
-![Data visualisation](https://github.com/Cyclip/open-university-placement/main/f.png?raw=true)
+![Data visualisation](https://raw.githubusercontent.com/Cyclip/open-university-placement/main/repo/f.png?raw=true)
 
 ---
 
@@ -87,4 +87,4 @@ Makes a multivariate linear regression model to predict house prices based on th
 - Number of nearby convenience stores  
 
 The dataset is plotted on a 4D `matplotlib` graph along with the line of regression.  
-![Data visualisation](https://github.com/Cyclip/open-university-placement/main/f2.png?raw=true)
+![Data visualisation](https://raw.githubusercontent.com/Cyclip/open-university-placement/main/repo/f2.png?raw=true)
