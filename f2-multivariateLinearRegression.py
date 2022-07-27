@@ -38,7 +38,7 @@ def main():
 
     # get score and equation
     score = model.score(model_x, model_y)
-    equation = "y = " + get_equation(model, VARIABLES)
+    equation = "y = " + get_equation(model, INDEPENDENT_VARIABLES)
     print(model.coef_)
 
     # plot points
